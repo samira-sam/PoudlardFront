@@ -3,14 +3,13 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
 
-// Interfaces exportées (assure-toi qu'elles sont bien exportées)
+// Interfaces exportées 
 export interface AnneeEtudeRelation {
   id_annee_etude: number;
   id_matiere: number;
 }
 
-// L'interface Matiere peut toujours avoir anneesEtude, mais fetchMatiereById ne la remplira pas.
-// C'est ok, car le composant MatiereDetails ne l'utilisera pas.
+
 export interface Matiere {
   id_matiere: number;
   nom: string;
@@ -57,7 +56,6 @@ export const useMatiereStore = defineStore('matiere', {
       }
     },
 
-    // Cette méthode ne doit plus combiner les données si MatiereDetails n'a pas besoin des années
     async fetchMatiereById(id: number): Promise<Matiere> {
       this.loading = true; // Géré globalement par le store
       this.error = null;

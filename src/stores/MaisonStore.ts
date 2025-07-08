@@ -12,13 +12,7 @@ export const useMaisonStore = defineStore('maison', {
   }),
 
   actions: {
-    /**
-     * Récupère toutes les maisons depuis l'API backend.
-     * C'est ici que tu appelles ton endpoint backend /maisons.
-     * Pour que l'affichage fonctionne bien, ton API DOIT retourner les objets
-     * 'directeur' et 'prefet' imbriqués dans chaque objet 'maison',
-     * avec leurs 'nom', 'prenom' et 'photo'.
-     */
+    
     async fetchAllMaisons() {
       this.loading = true; // Débute le chargement
       this.error = null; // Réinitialise l'erreur précédente
