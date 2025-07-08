@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": ["DOM", "ES2017"],
+    "module": "esnext",
+    "types": ["vite/client"],
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "baseUrl": ".",              // <== ajouté
+    "paths": {
+      "@/*": ["src/*"]          // <== ajouté pour alias @ déclaré ds tsconfig.json pour typescript qui ne le comprend pas
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.vue",
+    "shims-vue.d.ts"
+  ]
+}
