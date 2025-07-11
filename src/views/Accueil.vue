@@ -10,7 +10,8 @@
   </div>
 
   <!-- Bloc principal ajustable -->
-  <div class="mt-10 ml-[140px] pr-5 text-gray-800 space-y-10"> 
+  <div class="mt-10 ml-5 sm:ml-10 md:ml-20 lg:ml-[40px] pr-5 text-gray-800 space-y-10">
+
 
     <!-- Bloc rentrée -->
     <div class="text-left" v-if="rentree">

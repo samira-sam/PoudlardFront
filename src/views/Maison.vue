@@ -22,6 +22,7 @@
             >
               {{ maison.directeur?.prenom?.charAt(0) || 'D' }}
             </div>
+            <p class="mt-2 text-sm text-gray-500 font-medium">Directeur</p>
             <p v-if="maison.directeur" class="mt-2 text-md font-semibold text-gray-800">
               {{ maison.directeur.prenom }} {{ maison.directeur.nom }}
             </p>
@@ -57,6 +58,7 @@
             >
               {{ maison.prefet?.prenom?.charAt(0) || 'P' }}
             </div>
+            <p v-if="maison.prefet" class="mt-2 text-md font-semibold text-gray-800"></p>
             <p v-if="maison.prefet" class="mt-2 text-md font-semibold text-gray-800">
               {{ maison.prefet.prenom }} {{ maison.prefet.nom }}
             </p>

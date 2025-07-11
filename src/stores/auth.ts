@@ -72,12 +72,16 @@ export const useAuthStore = defineStore('auth', {
 
       } catch (err: any) {
         this.clearMessages(); // Nettoyer les messages d'avant
-        this.error = err.response?.data?.error || 'Erreur lors de la connexion.';
-        this.logout();
-      } finally {
-        this.isLoading = false; // Fin du chargement
-      }
+        this.error = err.response?.data?.error || 'Erreur lors de la connexion, informations non valides.';
+         setTimeout(() => {
+                            this.error = '';
+                          }, 4000);
+        this.isLoading = false;
+        throw err; // <-- propagation de l'erreur
+      } 
     },
+
+
 
     async register(data: { nom: string; prenom: string; email: string; mot_de_passe: string }) {
       this.isLoading = true; // Début du chargement

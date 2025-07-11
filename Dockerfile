@@ -13,7 +13,8 @@ COPY . .
 RUN npm run build
 
 # Production stage
-FROM nginx:stable-alpine
+FROM docker.io/library/nginx:stable-alpine
+
 
 # Copier les fichiers buildés dans le dossier attendu par nginx
 COPY --from=build /app/dist /usr/share/nginx/html

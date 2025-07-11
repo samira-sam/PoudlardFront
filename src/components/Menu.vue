@@ -34,7 +34,7 @@
           <!-- Lien Intranet vers la page de connexion -->
           <RouterLink to="/connexion" class="hover:text-blue-600">Intranet</RouterLink>
 
-          <!-- Connexion / Déconnexion -->
+          <!-- inscription -->
           <RouterLink
             v-if="!authStore.isAuthenticated"
             to="/inscription"
@@ -43,13 +43,7 @@
             Inscription
           </RouterLink>
 
-          <button
-            v-if="authStore.isAuthenticated"
-            @click="logout"
-            class="hover:text-red-400 bg-transparent border border-red-400 rounded px-3 py-1"
-          >
-            Déconnexion
-          </button>
+         
         </div>
 
         <!-- Menu burger (mobile) -->
@@ -79,19 +73,13 @@
 
         <RouterLink
           v-if="!authStore.isAuthenticated"
-          to="/connexion"
+          to="/inscription"
           class="block hover:text-blue-600"
         >
-          Connexion / Inscription
+          Inscription
         </RouterLink>
 
-        <button
-          v-if="authStore.isAuthenticated"
-          @click="logout"
-          class="block hover:text-red-400 bg-transparent border border-red-400 rounded px-3 py-1"
-        >
-          Déconnexion
-        </button>
+    
       </div>
     </div>
   </nav>

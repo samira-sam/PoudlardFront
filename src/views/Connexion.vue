@@ -51,15 +51,15 @@
         </router-link>
       </div>
 
-      <div class="mt-6 text-center">
-        <router-link
-          to="/inscription"
-          class="inline-block px-6 py-2 border border-purple-900 rounded-md bg-purple-900 text-white font-semibold
-                hover:bg-white hover:text-purple-900 transition-colors duration-300 ease-in-out"
-        >
-          <p>Pas encore inscrit ?</p><p>Créer votre compte ici</p> 
-        </router-link>
-      </div>
+     <div class="mt-6 text-center">
+  <router-link
+    to="/inscription"
+    class="inline-block px-6 py-2 border border-purple-900 rounded-md bg-purple-900 text-white font-semibold
+          hover:bg-white hover:text-purple-900 transition-colors duration-300 ease-in-out"
+  >
+    <p>Pas encore inscrit ?<br>Créer votre compte ici</p>
+  </router-link>
+</div>
     </form>
 
     <p v-if="authStore.message" class="mt-4 text-green-600 text-center">{{ authStore.message }}</p>
@@ -90,8 +90,12 @@ const validationSchema = toTypedSchema(
   })
 );
 
-
-const { handleSubmit, errors } = useForm({ validationSchema });
+const { handleSubmit, errors, resetForm } = useForm({ validationSchema,
+    initialValues: {
+    email: '',
+    password: ''
+  }
+});
 
 const loading = ref(false);
 
@@ -100,12 +104,16 @@ const onSubmit = handleSubmit(async (values) => {
   authStore.error = '';
   try {
     await authStore.login(values.email, values.password);
-  } catch (error) {
+    resetForm(); // Réinitialise le formulaire après une connexion réussie
+  } catch (error) {resetForm();
     console.error('Erreur lors de la connexion API:', error);
+     // <-- on vide le formulaire en cas d'erreur
   } finally {
     loading.value = false;
   }
 });
+
+
 </script>
 
 <style scoped>
